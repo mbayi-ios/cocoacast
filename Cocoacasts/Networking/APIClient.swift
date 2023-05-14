@@ -3,13 +3,18 @@ import Combine
 
 final class APIClient: APIService {
     func episodes() -> AnyPublisher<[Episode], APIError> {
+        request(.episodes)
+
+    }
+
+    private func request<T: Decodable>(_ endpoint: APIEndpoint) -> AnyPublisher<T, APIError> {
         var request  = URLRequest(url: Environment.apiBaseURL.appendingPathComponent("episodes"))
 
         request.addValue(Environment.apiToken, forHTTPHeaderField: "X-API-TOKEN")
 
         return URLSession.shared
             .dataTaskPublisher(for: request )
-            .tryMap{ data, response -> [Episode] in
+            .tryMap{ data, response -> T in
                 guard
                     let response = response as? HTTPURLResponse,
                     (200..<300).contains(response.statusCode)
@@ -17,7 +22,7 @@ final class APIClient: APIService {
                     throw APIError.failedRequest
                 }
                 do {
-                    return try JSONDecoder().decode([Episode].self, from: data)
+                    return try JSONDecoder().decode(T.self, from: data)
                 } catch {
                     print("unable to decode response \(error)")
                     throw APIError.invalidResponse
@@ -35,6 +40,5 @@ final class APIClient: APIService {
             }
             .receive(on: DispatchQueue.main)
             .eraseToAnyPublisher()
-
     }
 }
