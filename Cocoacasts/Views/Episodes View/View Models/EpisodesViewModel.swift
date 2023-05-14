@@ -9,6 +9,8 @@ final class EpisodesViewModel: ObservableObject {
 
     @Published private(set) var isFetching = false
 
+    @Published private(set) var errorMessage: String?
+
     // MARK: -
 
     var episodeRowViewModels: [EpisodeRowViewModel] {
@@ -35,17 +37,40 @@ final class EpisodesViewModel: ObservableObject {
         isFetching = true
 
         URLSession.shared.dataTaskPublisher(for: request)
-            .map(\.data)
-            .decode(type: [Episode].self, decoder: JSONDecoder())
+            .tryMap { data, response -> [Episode] in
+                guard
+                    let response = response as? HTTPURLResponse,
+                    (200..<300).contains(response.statusCode)
+                else {
+                    throw APIError.failedRequest
+                }
+                do {
+                    return try JSONDecoder().decode([Episode].self, from: data)
+                } catch{
+                    print("unable to decode response \(error)")
+                    throw APIError.invalidResponse
+                }
+            }
+            .mapError { error -> APIError in
+                switch error {
+                case let apiError as APIError:
+                    return apiError
+                case URLError.notConnectedToInternet:
+                    return APIError.unreachable
+                default:
+                    return APIError.failedRequest
+                }
+            }
             .receive(on: DispatchQueue.main)
             .sink(receiveCompletion: { [weak self] completion in
                 self?.isFetching = false
 
                 switch completion {
                 case .finished:
-                    ()
+                    print("successfully fetched episodes")
                 case .failure(let error):
                     print("unable to fetch episodes \(error)")
+                    self?.errorMessage = error.message
                 }
             }, receiveValue: { [ weak self] episodes in
                 self?.episodes = episodes

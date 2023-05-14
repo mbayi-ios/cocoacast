@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		89E9C24A2A116DA7004DF814 /* APIError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89E9C2492A116DA7004DF814 /* APIError.swift */; };
 		CC28B0F8271C37C600445858 /* CocoacastsApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC28B0F7271C37C600445858 /* CocoacastsApp.swift */; };
 		CC28B0FA271C37C600445858 /* RootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC28B0F9271C37C600445858 /* RootView.swift */; };
 		CC28B0FC271C37C700445858 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CC28B0FB271C37C700445858 /* Assets.xcassets */; };
@@ -35,6 +36,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		89E9C2492A116DA7004DF814 /* APIError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIError.swift; sourceTree = "<group>"; };
 		CC28B0F4271C37C600445858 /* Cocoacasts.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Cocoacasts.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CC28B0F7271C37C600445858 /* CocoacastsApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CocoacastsApp.swift; sourceTree = "<group>"; };
 		CC28B0F9271C37C600445858 /* RootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootView.swift; sourceTree = "<group>"; };
@@ -74,6 +76,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		89E9C2482A116D95004DF814 /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				89E9C2492A116DA7004DF814 /* APIError.swift */,
+			);
+			path = Networking;
+			sourceTree = "<group>";
+		};
 		CC28B0EB271C37C600445858 = {
 			isa = PBXGroup;
 			children = (
@@ -93,6 +103,7 @@
 		CC28B0F6271C37C600445858 /* Cocoacasts */ = {
 			isa = PBXGroup;
 			children = (
+				89E9C2482A116D95004DF814 /* Networking */,
 				CC28B105271C38DD00445858 /* App */,
 				CC28B106271C38E600445858 /* Views */,
 				CC28B115271C49B700445858 /* Models */,
@@ -411,6 +422,7 @@
 				CCF9F08B271D1A300080B729 /* EpisodeViewModel.swift in Sources */,
 				CCF9F091271D1B3D0080B729 /* VideoViewModel.swift in Sources */,
 				CCA39F96271C53340012913E /* SignInViewModel.swift in Sources */,
+				89E9C24A2A116DA7004DF814 /* APIError.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

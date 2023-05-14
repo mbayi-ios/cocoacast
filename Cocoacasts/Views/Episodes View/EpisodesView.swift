@@ -15,18 +15,22 @@ struct EpisodesView: View {
                     ProgressView()
                         .progressViewStyle(.circular)
                 } else {
-                    List(viewModel.episodeRowViewModels) { viewModel in
-                        NavigationLink {
-                            EpisodeView(
-                                viewModel: EpisodeViewModel(
-                                    episode: viewModel.episode
+                    if let errorMessage = viewModel.errorMessage {
+                        Text(errorMessage)
+                    } else {
+                        List(viewModel.episodeRowViewModels) { viewModel in
+                            NavigationLink {
+                                EpisodeView(
+                                    viewModel: EpisodeViewModel(
+                                        episode: viewModel.episode
+                                    )
                                 )
-                            )
-                        } label: {
-                            EpisodeRowView(viewModel: viewModel)
+                            } label: {
+                                EpisodeRowView(viewModel: viewModel)
+                            }
                         }
+                        .listStyle(.plain)
                     }
-                    .listStyle(.plain)
                 }
             }
             .navigationTitle("What's New")
