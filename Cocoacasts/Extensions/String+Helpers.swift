@@ -1,10 +1,3 @@
-//
-//  String+Helpers.swift
-//  Cocoacasts
-//
-//  Created by Bart Jacobs on 09/10/2021.
-//
-
 import Foundation
 
 extension String {

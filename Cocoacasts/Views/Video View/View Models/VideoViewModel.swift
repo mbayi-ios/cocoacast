@@ -1,10 +1,3 @@
-//
-//  VideoViewModel.swift
-//  Cocoacasts
-//
-//  Created by Bart Jacobs on 18/10/2021.
-//
-
 import Combine
 import Foundation
 import AVFoundation

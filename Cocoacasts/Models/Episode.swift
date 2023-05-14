@@ -1,16 +1,6 @@
-//
-//  Episode.swift
-//  Cocoacasts
-//
-//  Created by Bart Jacobs on 17/10/2021.
-//
-
 import Foundation
 
 struct Episode: Decodable {
-
-    // MARK: - Properties
-
     let id: Int
     let title: String
     let excerpt: String

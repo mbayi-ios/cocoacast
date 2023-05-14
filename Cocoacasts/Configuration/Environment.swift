@@ -1,10 +1,3 @@
-//
-//  Environment.swift
-//  Cocoacasts
-//
-//  Created by Bart Jacobs on 02/10/2021.
-//
-
 import Foundation
 
 enum Environment {

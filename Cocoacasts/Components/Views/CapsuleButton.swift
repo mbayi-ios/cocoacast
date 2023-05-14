@@ -1,10 +1,3 @@
-//
-//  CapsuleButton.swift
-//  Cocoacasts
-//
-//  Created by Bart Jacobs on 09/10/2021.
-//
-
 import SwiftUI
 
 struct CapsuleButton: View {

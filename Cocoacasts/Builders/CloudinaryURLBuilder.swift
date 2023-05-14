@@ -1,10 +1,3 @@
-//
-//  CloudinaryURLBuilder.swift
-//  Cocoacasts
-//
-//  Created by Bart Jacobs on 02/10/2021.
-//
-
 import UIKit
 
 final class CloudinaryURLBuilder {

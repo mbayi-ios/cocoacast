@@ -1,10 +1,3 @@
-//
-//  SignInView.swift
-//  Cocoacasts
-//
-//  Created by Bart Jacobs on 17/10/2021.
-//
-
 import SwiftUI
 
 struct SignInView: View {
