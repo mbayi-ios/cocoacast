@@ -3,15 +3,12 @@ import SwiftUI
 
 struct RootView: View {
 
-    // MARK: - Properties
-
     private let keychainService = KeychainService()
 
-    // MARK: - View
     
     var body: some View {
         TabView {
-            EpisodesView(viewModel: EpisodesViewModel())
+            EpisodesView(viewModel: EpisodesViewModel(apiService: APIClient()))
                 .tabItem {
                     Label("What's New", systemImage: "film")
                 }

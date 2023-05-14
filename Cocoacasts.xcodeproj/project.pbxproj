@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		89E9C24A2A116DA7004DF814 /* APIError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89E9C2492A116DA7004DF814 /* APIError.swift */; };
+		89E9C24D2A1171F2004DF814 /* APIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89E9C24C2A1171F2004DF814 /* APIService.swift */; };
+		89E9C24F2A117285004DF814 /* APIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89E9C24E2A117285004DF814 /* APIClient.swift */; };
+		89E9C2512A1175E2004DF814 /* APIPreviewClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89E9C2502A1175E2004DF814 /* APIPreviewClient.swift */; };
 		CC28B0F8271C37C600445858 /* CocoacastsApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC28B0F7271C37C600445858 /* CocoacastsApp.swift */; };
 		CC28B0FA271C37C600445858 /* RootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC28B0F9271C37C600445858 /* RootView.swift */; };
 		CC28B0FC271C37C700445858 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CC28B0FB271C37C700445858 /* Assets.xcassets */; };
@@ -37,6 +40,9 @@
 
 /* Begin PBXFileReference section */
 		89E9C2492A116DA7004DF814 /* APIError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIError.swift; sourceTree = "<group>"; };
+		89E9C24C2A1171F2004DF814 /* APIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIService.swift; sourceTree = "<group>"; };
+		89E9C24E2A117285004DF814 /* APIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIClient.swift; sourceTree = "<group>"; };
+		89E9C2502A1175E2004DF814 /* APIPreviewClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIPreviewClient.swift; sourceTree = "<group>"; };
 		CC28B0F4271C37C600445858 /* Cocoacasts.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Cocoacasts.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CC28B0F7271C37C600445858 /* CocoacastsApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CocoacastsApp.swift; sourceTree = "<group>"; };
 		CC28B0F9271C37C600445858 /* RootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootView.swift; sourceTree = "<group>"; };
@@ -79,9 +85,20 @@
 		89E9C2482A116D95004DF814 /* Networking */ = {
 			isa = PBXGroup;
 			children = (
+				89E9C24B2A1171E2004DF814 /* Protocols */,
 				89E9C2492A116DA7004DF814 /* APIError.swift */,
+				89E9C24E2A117285004DF814 /* APIClient.swift */,
+				89E9C2502A1175E2004DF814 /* APIPreviewClient.swift */,
 			);
 			path = Networking;
+			sourceTree = "<group>";
+		};
+		89E9C24B2A1171E2004DF814 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				89E9C24C2A1171F2004DF814 /* APIService.swift */,
+			);
+			path = Protocols;
 			sourceTree = "<group>";
 		};
 		CC28B0EB271C37C600445858 = {
@@ -412,6 +429,8 @@
 				CCA39F90271C52F60012913E /* CapsuleButton.swift in Sources */,
 				CCA39F93271C53260012913E /* SignInView.swift in Sources */,
 				CCF9F088271D1A160080B729 /* EpisodeView.swift in Sources */,
+				89E9C2512A1175E2004DF814 /* APIPreviewClient.swift in Sources */,
+				89E9C24F2A117285004DF814 /* APIClient.swift in Sources */,
 				CCF9F08E271D1B290080B729 /* VideoView.swift in Sources */,
 				CC28B0FA271C37C600445858 /* RootView.swift in Sources */,
 				CCF9F094271D1F540080B729 /* VideoDurationFormatter.swift in Sources */,
@@ -419,6 +438,7 @@
 				CC28B0F8271C37C600445858 /* CocoacastsApp.swift in Sources */,
 				CC28B119271C4AC300445858 /* EpisodeRowViewModel.swift in Sources */,
 				CC28B121271C4DCB00445858 /* Environment.swift in Sources */,
+				89E9C24D2A1171F2004DF814 /* APIService.swift in Sources */,
 				CCF9F08B271D1A300080B729 /* EpisodeViewModel.swift in Sources */,
 				CCF9F091271D1B3D0080B729 /* VideoViewModel.swift in Sources */,
 				CCA39F96271C53340012913E /* SignInViewModel.swift in Sources */,
