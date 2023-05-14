@@ -34,18 +34,22 @@ final class EpisodesViewModel: ObservableObject {
 
         isFetching = true
 
-        URLSession.shared.dataTask(with: request) {[weak self] data, response, error in
-            DispatchQueue.main.async {
+        URLSession.shared.dataTaskPublisher(for: request)
+            .map(\.data)
+            .decode(type: [Episode].self, decoder: JSONDecoder())
+            .receive(on: DispatchQueue.main)
+            .sink(receiveCompletion: { [weak self] completion in
                 self?.isFetching = false
 
-                if error != nil || (response as? HTTPURLResponse)?.statusCode != 200 {
-                    print("unable to fetch episodes")
-                } else if let data = data, let episodes = try? JSONDecoder().decode([Episode].self, from: data){
-                    self?.episodes = episodes
+                switch completion {
+                case .finished:
+                    ()
+                case .failure(let error):
+                    print("unable to fetch episodes \(error)")
                 }
-            }
-        }
-        .resume()
+            }, receiveValue: { [ weak self] episodes in
+                self?.episodes = episodes
+            }).store(in: &subscriptions)
     }
 
 }
