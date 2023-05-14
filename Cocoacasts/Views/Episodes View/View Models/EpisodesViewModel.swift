@@ -28,15 +28,24 @@ final class EpisodesViewModel: ObservableObject {
     // MARK: - Helper Methods
 
     private func fetchEpisodes() {
-        guard
-            let url = Bundle.main.url(forResource: "episodes", withExtension: "json"),
-            let data = try? Data(contentsOf: url),
-            let episodes = try? JSONDecoder().decode([Episode].self, from: data)
-        else {
-            return
-        }
+      var request = URLRequest(url: URL(string: "https://cocoacasts-mock-api.herokuapp.com/api/v1/episodes")!)
 
-        self.episodes = episodes
+        request.addValue("1772bb7bc78941e2b51c9c67d17ee76e", forHTTPHeaderField: "X-API-TOKEN")
+
+        isFetching = true
+
+        URLSession.shared.dataTask(with: request) {[weak self] data, response, error in
+            DispatchQueue.main.async {
+                self?.isFetching = false
+
+                if error != nil || (response as? HTTPURLResponse)?.statusCode != 200 {
+                    print("unable to fetch episodes")
+                } else if let data = data, let episodes = try? JSONDecoder().decode([Episode].self, from: data){
+                    self?.episodes = episodes
+                }
+            }
+        }
+        .resume()
     }
 
 }
