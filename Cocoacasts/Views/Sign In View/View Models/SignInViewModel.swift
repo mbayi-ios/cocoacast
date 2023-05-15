@@ -44,8 +44,8 @@ final class SignInViewModel: ObservableObject {
                 switch completion {
                 case .finished:
                     ()
-                case .failure:
-                    self?.errorMessage = "The email/password combination is invalid"
+                case .failure(let error):
+                    self?.errorMessage = APIErrorMapper(error: error, context: .signIn).message
 
                 }
             }, receiveValue: {[ weak self] response in

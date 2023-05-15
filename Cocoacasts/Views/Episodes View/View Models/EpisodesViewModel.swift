@@ -42,7 +42,10 @@ final class EpisodesViewModel: ObservableObject {
                     print("successfully fetched episodes")
                 case .failure(let error):
                     print("unable to fetch episodes \(error)")
-                    self?.errorMessage = error.message
+                    self?.errorMessage = APIErrorMapper(
+                            error: error,
+                            context: .episodes
+                    ).message
                 }
             }, receiveValue: { [ weak self] episodes in
                 self?.episodes = episodes

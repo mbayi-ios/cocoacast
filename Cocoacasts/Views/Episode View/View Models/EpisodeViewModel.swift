@@ -3,11 +3,7 @@ import Foundation
 
 final class EpisodeViewModel: ObservableObject {
 
-    // MARK: - Properties
-
     private let episode: Episode
-
-    // MARK: -
 
     var title: String {
         episode.title
@@ -23,15 +19,12 @@ final class EpisodeViewModel: ObservableObject {
 
     @Published private(set) var image: UIImage?
 
-    // MARK: -
-
     private(set) lazy var formattedVideoDuration: String? = {
         VideoDurationFormatter().string(
             from: TimeInterval(episode.videoDuration)
         )
     }()
 
-    // MARK: -
 
     private var cloudinaryURL: URL {
         CloudinaryURLBuilder(source: episode.imageURL)
@@ -40,15 +33,11 @@ final class EpisodeViewModel: ObservableObject {
             .build()
     }
 
-    // MARK: - Initialization
-
     init(episode: Episode) {
         self.episode = episode
 
         fetchImage()
     }
-
-    // MARK: - Helper Methods
 
     private func fetchImage() {
         URLSession.shared.dataTask(with: cloudinaryURL) { [weak self] data, _, error in
