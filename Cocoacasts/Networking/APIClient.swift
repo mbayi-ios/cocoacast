@@ -12,6 +12,10 @@ final class APIClient: APIService {
 
     }
 
+    func video(id: String, accessToken: String) -> AnyPublisher<Video, APIError> {
+        request(.video(id: id, accessToken: accessToken))
+    }
+
     private func request<T: Decodable>(_ endpoint: APIEndpoint) -> AnyPublisher<T, APIError> {
         var request  = URLRequest(url: Environment.apiBaseURL.appendingPathComponent("episodes"))
 

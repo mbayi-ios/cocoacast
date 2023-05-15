@@ -11,16 +11,28 @@ struct APIPreviewClient: APIService {
     }
 
     func episodes() -> AnyPublisher<[Episode], APIError> {
-        guard
-            let url = Bundle.main.url(forResource: "episodes", withExtension: "json"),
-            let data = try? Data(contentsOf: url),
-            let episodes = try? JSONDecoder().decode([Episode].self, from: data)
-        else {
-            fatalError("unable to load episodes")
-        }
-
-        return Just(episodes)
+        return Just(stubData(for: "episodes"))
             .setFailureType(to: APIError.self)
             .eraseToAnyPublisher()
+    }
+
+    func video(id: String, accessToken: String) -> AnyPublisher<Video, APIError> {
+        Just(stubData(for: "video"))
+            .setFailureType(to: APIError.self)
+            .eraseToAnyPublisher()
+    }
+}
+
+
+fileprivate extension  APIPreviewClient {
+    func stubData<T: Decodable>(for resource: String)-> T {
+        guard
+            let url = Bundle.main.url(forResource: resource, withExtension: "json"),
+            let data = try? Data(contentsOf: url),
+            let stubData = try? JSONDecoder().decode(T.self, from: data)
+        else {
+            fatalError("unable to load stub data")
+        }
+        return stubData
     }
 }

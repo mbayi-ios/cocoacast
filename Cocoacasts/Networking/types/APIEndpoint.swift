@@ -1,8 +1,9 @@
 import Foundation
 
 enum APIEndpoint {
-    case episodes
     case auth(email: String, password: String)
+    case episodes
+    case video(id: String, accessToken: String)
 
     var request: URLRequest {
         var request = URLRequest(url: url)
@@ -24,6 +25,9 @@ enum APIEndpoint {
 
         case .episodes:
             return "episodes"
+
+        case let .video(id: id, accessToken: _):
+            return "videos/\(id)"
         }
     }
 
@@ -39,6 +43,10 @@ enum APIEndpoint {
             headers["Authorization"] = "basic \(encodedAuthData)"
         }
 
+        if case let .video(id: _, accessToken: accessToken) = self {
+            headers["Authorization"] = "Bearer \(accessToken)"
+        }
+
         return headers
     }
 
@@ -47,7 +55,8 @@ enum APIEndpoint {
         case .auth:
             return .post
 
-        case .episodes:
+        case .episodes,
+                .video:
             return .get
         }
     }

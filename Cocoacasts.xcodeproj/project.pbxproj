@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		891646B52A122233003E7F0C /* SignInResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 891646B42A122233003E7F0C /* SignInResponse.swift */; };
 		891646B82A1231A5003E7F0C /* APIErrorMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 891646B72A1231A5003E7F0C /* APIErrorMapper.swift */; };
+		891646BA2A1237F8003E7F0C /* Video.swift in Sources */ = {isa = PBXBuildFile; fileRef = 891646B92A1237F8003E7F0C /* Video.swift */; };
+		891646BC2A123842003E7F0C /* video.json in Resources */ = {isa = PBXBuildFile; fileRef = 891646BB2A123842003E7F0C /* video.json */; };
 		89E9C24A2A116DA7004DF814 /* APIError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89E9C2492A116DA7004DF814 /* APIError.swift */; };
 		89E9C24D2A1171F2004DF814 /* APIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89E9C24C2A1171F2004DF814 /* APIService.swift */; };
 		89E9C24F2A117285004DF814 /* APIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89E9C24E2A117285004DF814 /* APIClient.swift */; };
@@ -46,6 +48,8 @@
 /* Begin PBXFileReference section */
 		891646B42A122233003E7F0C /* SignInResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInResponse.swift; sourceTree = "<group>"; };
 		891646B72A1231A5003E7F0C /* APIErrorMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIErrorMapper.swift; sourceTree = "<group>"; };
+		891646B92A1237F8003E7F0C /* Video.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Video.swift; sourceTree = "<group>"; };
+		891646BB2A123842003E7F0C /* video.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = video.json; sourceTree = "<group>"; };
 		89E9C2492A116DA7004DF814 /* APIError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIError.swift; sourceTree = "<group>"; };
 		89E9C24C2A1171F2004DF814 /* APIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIService.swift; sourceTree = "<group>"; };
 		89E9C24E2A117285004DF814 /* APIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIClient.swift; sourceTree = "<group>"; };
@@ -234,6 +238,7 @@
 			isa = PBXGroup;
 			children = (
 				CC28B10E271C39AE00445858 /* episodes.json */,
+				891646BB2A123842003E7F0C /* video.json */,
 			);
 			path = Stubs;
 			sourceTree = "<group>";
@@ -259,6 +264,7 @@
 			isa = PBXGroup;
 			children = (
 				CC28B116271C49CB00445858 /* Episode.swift */,
+				891646B92A1237F8003E7F0C /* Video.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -445,6 +451,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				CC28B10F271C39AE00445858 /* episodes.json in Resources */,
+				891646BC2A123842003E7F0C /* video.json in Resources */,
 				CC28B0FF271C37C700445858 /* Preview Assets.xcassets in Resources */,
 				CC28B0FC271C37C700445858 /* Assets.xcassets in Resources */,
 			);
@@ -473,6 +480,7 @@
 				CCA39F93271C53260012913E /* SignInView.swift in Sources */,
 				CCF9F088271D1A160080B729 /* EpisodeView.swift in Sources */,
 				89E9C2512A1175E2004DF814 /* APIPreviewClient.swift in Sources */,
+				891646BA2A1237F8003E7F0C /* Video.swift in Sources */,
 				89E9C24F2A117285004DF814 /* APIClient.swift in Sources */,
 				CCF9F08E271D1B290080B729 /* VideoView.swift in Sources */,
 				89E9C2582A1178F0004DF814 /* HTTPMethod.swift in Sources */,

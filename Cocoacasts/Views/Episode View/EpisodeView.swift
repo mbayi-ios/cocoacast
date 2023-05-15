@@ -33,7 +33,8 @@ struct EpisodeView: View {
             .sheet(isPresented: $showVideo) {
                 VideoView(
                     viewModel: VideoViewModel(
-                        videoID: viewModel.videoID
+                        videoID: viewModel.videoID,
+                        apiService: APIClient()
                     )
                 )
             }

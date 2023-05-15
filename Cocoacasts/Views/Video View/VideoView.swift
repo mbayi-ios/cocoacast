@@ -30,7 +30,8 @@ struct VideoView_Previews: PreviewProvider {
     static var previews: some View {
         VideoView(
             viewModel: VideoViewModel(
-                videoID: Episode.episodes[0].videoID
+                videoID: Episode.episodes[0].videoID,
+                apiService: APIPreviewClient()
             )
         )
     }
