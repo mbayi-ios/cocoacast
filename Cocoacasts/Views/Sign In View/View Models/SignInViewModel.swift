@@ -3,7 +3,9 @@ import Foundation
 
 final class SignInViewModel: ObservableObject {
 
-    // MARK: - Properties
+    private let apiService: APIService
+
+    @Published private(set) var errorMessage: String?
 
     @Published var email = ""
     @Published var password = ""
@@ -14,24 +16,42 @@ final class SignInViewModel: ObservableObject {
         email.isEmail && !password.isEmpty
     }
 
-    // MARK: -
-
     private let keychainService: KeychainService
 
-    // MARK: -
 
     private var subscriptions: Set<AnyCancellable> = []
 
-    // MARK: - Initialization
 
-    init(keychainService: KeychainService) {
+    init(apiService: APIService, keychainService: KeychainService) {
+        self.apiService = apiService
         self.keychainService = keychainService
     }
 
-    // MARK: - Public API
 
     func signIn() {
+        guard canSignIn else {
+            return
+        }
 
+        isSigningIn = true
+        errorMessage = nil
+
+        apiService.signIn(email: email, password: password)
+            .sink(receiveCompletion: { [weak self] completion in
+                self?.password = ""
+                self?.isSigningIn = false
+
+                switch completion {
+                case .finished:
+                    ()
+                case .failure:
+                    self?.errorMessage = "The email/password combination is invalid"
+
+                }
+            }, receiveValue: {[ weak self] response in
+                self?.keychainService.setAccessToken(response.accessToken)
+                self?.keychainService.setRefreshToken(response.refreshToken)
+            }).store(in: &subscriptions)
     }
 
 }

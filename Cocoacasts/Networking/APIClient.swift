@@ -2,6 +2,11 @@ import Foundation
 import Combine
 
 final class APIClient: APIService {
+
+    func signIn(email: String, password: String) -> AnyPublisher<SignInResponse, APIError> {
+        request(.auth(email: email, password: password))
+    }
+    
     func episodes() -> AnyPublisher<[Episode], APIError> {
         request(.episodes)
 

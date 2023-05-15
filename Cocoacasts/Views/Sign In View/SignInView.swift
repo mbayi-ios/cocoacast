@@ -13,6 +13,11 @@ struct SignInView: View {
             ZStack {
                 VStack(spacing: 20.0) {
                     VStack(alignment: .leading, spacing: 20.0) {
+                        if let errorMessage = viewModel.errorMessage {
+                            Text(errorMessage)
+                                .fontWeight(.light)
+                                .foregroundColor(.accentColor)
+                        }
                         VStack(alignment: .leading, spacing: 8.0) {
                             Text("Email")
                                 .fontWeight(.light)
@@ -56,6 +61,7 @@ struct SignInView_Previews: PreviewProvider {
     static var previews: some View {
         SignInView(
             viewModel: SignInViewModel(
+                apiService: APIPreviewClient(),
                 keychainService: KeychainService()
             )
         )

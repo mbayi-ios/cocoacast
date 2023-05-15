@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		891646B52A122233003E7F0C /* SignInResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 891646B42A122233003E7F0C /* SignInResponse.swift */; };
 		89E9C24A2A116DA7004DF814 /* APIError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89E9C2492A116DA7004DF814 /* APIError.swift */; };
 		89E9C24D2A1171F2004DF814 /* APIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89E9C24C2A1171F2004DF814 /* APIService.swift */; };
 		89E9C24F2A117285004DF814 /* APIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89E9C24E2A117285004DF814 /* APIClient.swift */; };
@@ -42,6 +43,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		891646B42A122233003E7F0C /* SignInResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInResponse.swift; sourceTree = "<group>"; };
 		89E9C2492A116DA7004DF814 /* APIError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIError.swift; sourceTree = "<group>"; };
 		89E9C24C2A1171F2004DF814 /* APIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIService.swift; sourceTree = "<group>"; };
 		89E9C24E2A117285004DF814 /* APIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIClient.swift; sourceTree = "<group>"; };
@@ -88,9 +90,18 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		891646B32A122220003E7F0C /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				891646B42A122233003E7F0C /* SignInResponse.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
 		89E9C2482A116D95004DF814 /* Networking */ = {
 			isa = PBXGroup;
 			children = (
+				891646B32A122220003E7F0C /* Models */,
 				89E9C2522A117756004DF814 /* types */,
 				89E9C24B2A1171E2004DF814 /* Protocols */,
 				89E9C24E2A117285004DF814 /* APIClient.swift */,
@@ -439,6 +450,7 @@
 				CC28B11C271C4B3F00445858 /* CloudinaryURLBuilder.swift in Sources */,
 				CC28B117271C49CB00445858 /* Episode.swift in Sources */,
 				89E9C2562A117811004DF814 /* TypeAliases.swift in Sources */,
+				891646B52A122233003E7F0C /* SignInResponse.swift in Sources */,
 				CC28B114271C39E300445858 /* EpisodesViewModel.swift in Sources */,
 				CCA39F99271C53920012913E /* String+Helpers.swift in Sources */,
 				89E9C2542A117773004DF814 /* APIEndpoint.swift in Sources */,

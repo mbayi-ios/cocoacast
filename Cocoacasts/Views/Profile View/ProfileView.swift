@@ -20,6 +20,7 @@ struct ProfileView: View {
             } else {
                 SignInView(
                     viewModel: SignInViewModel(
+                        apiService: APIClient(),
                         keychainService: viewModel.keychainService
                     )
                 )

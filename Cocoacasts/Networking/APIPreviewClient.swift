@@ -3,6 +3,13 @@ import Foundation
 
 
 struct APIPreviewClient: APIService {
+
+    func signIn(email: String, password: String) -> AnyPublisher<SignInResponse, APIError> {
+        Just(SignInResponse(accessToken: "123", refreshToken: "456"))
+            .setFailureType(to: APIError.self)
+            .eraseToAnyPublisher()
+    }
+
     func episodes() -> AnyPublisher<[Episode], APIError> {
         guard
             let url = Bundle.main.url(forResource: "episodes", withExtension: "json"),
